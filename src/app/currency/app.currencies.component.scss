@@ -1,0 +1,14 @@
+.h-flex-container {
+    padding: 0px;
+    margin: 0px;
+    max-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h-flex-container > .currency {
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid #afafaf;
+}

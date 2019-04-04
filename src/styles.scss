@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* Globally */
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+a, a:visited, a:hover, a:focus, a:active { text-decoration: none; color:inherit; }
+
+body {
+    margin: 5px;;
+}
