@@ -3,12 +3,16 @@ class Attributes {
     name: string;
     currencyType: string;
     symbol: string;
+    isoNum3: string;
+    isoAlpha3: string;
     constructor(raw: any) {
         if (raw) {
             this.code = raw.code;
             this.name = raw.name;
             this.currencyType = raw.currency_type;
             this.symbol = raw.symbol;
+            this.isoNum3 = raw.code_iso_numeric3;
+            this.isoAlpha3 = raw.code_iso_alpha3;
         }
     }
 }
@@ -18,7 +22,7 @@ export class Currency {
 
     public constructor(raw: any) {
         if (raw) {
-            this.id = raw.code;
+            this.id = raw.id;
             this.attributes = new Attributes(raw.attributes);
         }
     }

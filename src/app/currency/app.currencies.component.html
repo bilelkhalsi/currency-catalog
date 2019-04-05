@@ -2,7 +2,7 @@
     <h2>Available currencies</h2>
     <ul class="h-flex-container">
         <li *ngFor="let currency of currencies | async" class="currency">
-            <a [routerLink]="['/currency/', currency.code]" routerLinkActive="currency-active">
+            <a [routerLink]="['/currency', currency.id]" routerLinkActive="currency-active">
                 <span> ID: {{currency.id}}</span>
                 <span> Type: {{currency.attributes.name}}</span>
                 <span> Symbol: {{currency.attributes.symbol}}</span>

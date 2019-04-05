@@ -1,15 +1,39 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppCurrenciesComponent } from './app.currencies.component';
-import { AppCurrenciesLoader } from './app.currencies.loader';
+import { AppCurrenciesService } from './app.currencies.service';
 import { of } from 'rxjs';
 import { Currency } from './api';
 
 const currencies = [
-    new Currency({ 'code': 'aa', 'name': 'aaa', 'symbol': 'a' }),
-    new Currency({ 'code': 'bb', 'name': 'bbb', 'symbol': 'b' })
+    new Currency({
+        'id': 'USD',
+        'attributes': {
+            'code': 'USD',
+            'name': 'US Dollar',
+            'currency_type': 'national',
+            'code_iso_numeric3': '840',
+            'code_iso_alpha3': 'USD',
+            'symbol': '$',
+            'native_symbol': '$',
+            'category': 'others'
+        },
+    }),
+    new Currency({
+        'id': 'EUR',
+        'attributes': {
+            'code': 'EUR',
+            'name': 'Euro',
+            'currency_type': 'national',
+            'code_iso_numeric3': '978',
+            'code_iso_alpha3': 'EUR',
+            'symbol': '€',
+            'native_symbol': '€',
+            'category': 'others'
+        }
+    })
 ];
-const mockLoader = <AppCurrenciesLoader>{ load: () => of(currencies) };
+const mockLoader = <AppCurrenciesService>{ load: () => of(currencies) };
 
 describe('AppCurrenciesComponent', () => {
     beforeEach(async(() => {
@@ -21,7 +45,7 @@ describe('AppCurrenciesComponent', () => {
                 AppCurrenciesComponent
             ],
             providers: [{
-                provide: AppCurrenciesLoader, useValue: mockLoader
+                provide: AppCurrenciesService, useValue: mockLoader
             }]
         }).compileComponents();
     }));

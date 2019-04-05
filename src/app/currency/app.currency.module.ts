@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppCurrenciesComponent } from './app.currencies.component';
-import { AppCurrenciesLoader } from './app.currencies.loader';
+import { AppCurrencyComponent } from './app.currency.component';
+import { AppCurrenciesService } from './app.currencies.service';
 import { AppCurrencyRoutingModule } from './app.currency.router';
 
 @NgModule({
     imports: [CommonModule, HttpClientModule, AppCurrencyRoutingModule],
     exports: [ AppCurrencyRoutingModule ],
-    declarations: [AppCurrenciesComponent],
-    entryComponents: [AppCurrenciesComponent],
-    providers: [AppCurrenciesLoader],
+    declarations: [AppCurrenciesComponent, AppCurrencyComponent],
+    entryComponents: [AppCurrenciesComponent, AppCurrencyComponent],
+    providers: [AppCurrenciesService],
 })
 export class AppCurrenciesModule { }

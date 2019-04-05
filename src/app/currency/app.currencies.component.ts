@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppCurrenciesLoader } from './app.currencies.loader';
+import { AppCurrenciesService } from './app.currencies.service';
 import { Observable } from 'rxjs';
 import { Currency } from './api';
 
@@ -13,7 +13,7 @@ export class AppCurrenciesComponent implements OnInit {
 
     currencies: Observable<Currency[]>;
 
-    constructor(private loader: AppCurrenciesLoader) { }
+    constructor(private loader: AppCurrenciesService) { }
 
     ngOnInit() {
         this.currencies = this.loader.load();
