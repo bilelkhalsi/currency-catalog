@@ -7,13 +7,16 @@ import { Currency, CURRENCIES_MOCK } from './api';
 @Injectable()
 export class AppCurrenciesLoader {
 
-    currenciesUrl = '/c/api/auto/currencymap.json?name=Y';
+    currenciesUrl = '/api/auto/currencymap.json?name=Y';
 
     constructor(private http: HttpClient) { }
 
 
     public load(): Observable<Currency[]> {
-        return of(CURRENCIES_MOCK);
+        return of(CURRENCIES_MOCK).pipe(
+            tap(c => console.log(c)),
+            map(currencies  => currencies.map(c => new Currency(c)))
+        );
     }
 
     public _load(): Observable<Currency> {

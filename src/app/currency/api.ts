@@ -1,71 +1,106 @@
-export class Currency {
+class Attributes {
     code: string;
-    symbol: string;
     name: string;
+    currencyType: string;
+    symbol: string;
+    constructor(raw: any) {
+        if (raw) {
+            this.code = raw.code;
+            this.name = raw.name;
+            this.currencyType = raw.currency_type;
+            this.symbol = raw.symbol;
+        }
+    }
+}
+export class Currency {
+    id: string;
+    attributes: Attributes;
 
     public constructor(raw: any) {
         if (raw) {
-            this.code = raw.code;
-            this.symbol = raw.symbol;
-            this.name = raw.name;
+            this.id = raw.code;
+            this.attributes = new Attributes(raw.attributes);
         }
     }
 }
 
 export const CURRENCIES_MOCK = [
-
     {
-        'symbol': '$',
-        'name': 'US Dollar',
-        'symbol_native': '$',
-        'decimal_digits': 2,
-        'rounding': 0,
-        'code': 'USD',
-        'name_plural': 'US dollars'
+        'id': 'USD',
+        'attributes': {
+            'code': 'USD',
+            'name': 'US Dollar',
+            'currency_type': 'national',
+            'code_iso_numeric3': '840',
+            'code_iso_alpha3': 'USD',
+            'symbol': '$',
+            'native_symbol': '$',
+            'category': 'others'
+        },
     },
     {
-        'symbol': 'CA$',
-        'name': 'Canadian Dollar',
-        'symbol_native': '$',
-        'decimal_digits': 2,
-        'rounding': 0,
-        'code': 'CAD',
-        'name_plural': 'Canadian dollars'
+        'id': 'EUR',
+        'attributes': {
+            'code': 'EUR',
+            'name': 'Euro',
+            'currency_type': 'national',
+            'code_iso_numeric3': '978',
+            'code_iso_alpha3': 'EUR',
+            'symbol': '€',
+            'native_symbol': '€',
+            'category': 'others'
+        }
     },
     {
-        'symbol': '€',
-        'name': 'Euro',
-        'symbol_native': '€',
-        'decimal_digits': 2,
-        'rounding': 0,
-        'code': 'EUR',
-        'name_plural': 'euros'
+        'id': 'JPY',
+        'attributes': {
+            'code': 'JPY',
+            'name': 'Yen',
+            'currency_type': 'national',
+            'code_iso_numeric3': '392',
+            'code_iso_alpha3': 'JPY',
+            'symbol': '¥',
+            'native_symbol': '￥',
+            'category': 'others'
+        }
     },
     {
-        'symbol': 'AED',
-        'name': 'United Arab Emirates Dirham',
-        'symbol_native': 'د.إ.‏',
-        'decimal_digits': 2,
-        'rounding': 0,
-        'code': 'AED',
-        'name_plural': 'UAE dirhams'
+        'id': 'ARS',
+        'attributes': {
+            'code': 'ARS',
+            'name': 'Argentine Peso',
+            'currency_type': 'national',
+            'code_iso_numeric3': '032',
+            'code_iso_alpha3': 'ARS',
+            'symbol': 'AR$',
+            'native_symbol': '$',
+            'category': 'others'
+        }
     },
     {
-        'symbol': 'Af',
-        'name': 'Afghan Afghani',
-        'symbol_native': '؋',
-        'decimal_digits': 0,
-        'rounding': 0,
-        'code': 'AFN',
-        'name_plural': 'Afghan Afghanis'
+        'id': 'CUC',
+        'attributes': {
+            'code': 'CUC',
+            'name': 'Peso Convertible',
+            'currency_type': 'national',
+            'code_iso_numeric3': '931',
+            'code_iso_alpha3': 'CUC',
+            'symbol': null,
+            'native_symbol': null,
+            'category': 'others'
+        }
     },
     {
-        'symbol': 'ALL',
-        'name': 'Albanian Lek',
-        'symbol_native': 'Lek',
-        'decimal_digits': 0,
-        'rounding': 0,
-        'code': 'ALL',
-        'name_plural': 'Albanian lekë'
+        'id': 'CHF',
+        'attributes': {
+            'code': 'CHF',
+            'name': 'Swiss Franc',
+            'currency_type': 'national',
+            'code_iso_numeric3': '756',
+            'code_iso_alpha3': 'CHF',
+            'symbol': 'CHF',
+            'native_symbol': 'CHF',
+            'category': 'others'
+        }
     }
 ];
