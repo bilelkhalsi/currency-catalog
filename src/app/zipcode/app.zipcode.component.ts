@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ZipCodeService } from './app.zipcode.service';
 
 @Component({
     selector: 'app-zipcode',
-    template: `<h1>{{zipcode}}</h1>`
+    templateUrl: './app.zipcode.component.html'
 })
 
 export class ZipCodeComponent implements OnInit {
 
-    zipcode = '94300';
+    zipcode: string;
 
-    constructor() { }
+    constructor(private service: ZipCodeService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.zipcode = this.service.getZipcode();
+    }
 }
