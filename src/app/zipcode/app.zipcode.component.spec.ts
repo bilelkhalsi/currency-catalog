@@ -18,7 +18,8 @@ describe('ZipCodeComponent:', () => {
         expect(component).toBeDefined();
     });
 
-    it('should fail : binding happen when angular performs change detection', () => {
+    it('should render zipcode', () => {
+        fixture.detectChanges();
         const html: HTMLElement = fixture.nativeElement;
         expect(html.innerHTML).toContain('94300');
     });
