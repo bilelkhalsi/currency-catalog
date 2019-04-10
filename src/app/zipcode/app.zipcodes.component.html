@@ -1,6 +1,13 @@
-<h2>Add zip-code:</h2>
-<form class="zipcode-form">
-    <mat-form-field>
-        <input matInput placeholder="add zipcode...">
-    </mat-form-field>
-</form>
+<mat-card>
+    <mat-card-content>
+        <form class="zipcode-form">
+            <mat-label>Enter a zipcode:</mat-label>
+            <mat-form-field floatLabel="never">
+                <input type="number" matInput placeholder="Zipcode">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary">Add location</button>
+    </mat-card-actions>
+</mat-card>
