@@ -9,4 +9,15 @@
             </a>
         </li>
     </ul>
+    <div class="h-flex-container">
+        <select [formControl]="pageSize">
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+        </select>
+        <div class="paginator">
+            <button type="button" (click)="prevPage()" [disabled]="currentPage.getValue() === 0">Prev</button>
+            <button type="buton" (click)="nextPage()" [disabled]="currentPage.getValue() === pagesCount">Next</button>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,8 +9,8 @@ import { AppCurrenciesService } from './app.currencies.service';
 import { AppCurrencyRoutingModule } from './app.currency.router';
 
 @NgModule({
-    imports: [CommonModule, HttpClientModule, AppCurrencyRoutingModule],
-    exports: [ AppCurrencyRoutingModule ],
+    imports: [ReactiveFormsModule, CommonModule, HttpClientModule, AppCurrencyRoutingModule],
+    exports: [AppCurrencyRoutingModule],
     declarations: [AppCurrenciesComponent, AppCurrencyComponent],
     entryComponents: [AppCurrenciesComponent, AppCurrencyComponent],
     providers: [AppCurrenciesService],

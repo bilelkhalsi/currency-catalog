@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppCurrenciesComponent } from './app.currencies.component';
 import { AppCurrenciesService } from './app.currencies.service';
@@ -36,10 +37,12 @@ const currencies = [
 const mockLoader = <AppCurrenciesService>{ load: () => of(currencies) };
 
 describe('AppCurrenciesComponent', () => {
-    beforeEach(async(() => {
+    let fixture;
+    let component;
+    beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
-                RouterTestingModule
+                RouterTestingModule, ReactiveFormsModule
             ],
             declarations: [
                 AppCurrenciesComponent
@@ -48,18 +51,18 @@ describe('AppCurrenciesComponent', () => {
                 provide: AppCurrenciesService, useValue: mockLoader
             }]
         }).compileComponents();
-    }));
+        fixture = TestBed.createComponent(AppCurrenciesComponent);
+        component = fixture.componentInstance;
+    });
 
     it('should render a title in h2 element', () => {
-        const fixture = TestBed.createComponent(AppCurrenciesComponent);
         fixture.detectChanges();
-        const component = fixture.debugElement.nativeElement;
+        // const component = fixture.debugElement.nativeElement;
         expect(component.querySelector('h2').textContent).toEqual('Available currencies');
     });
 
 
     it('should render a list of currencies', () => {
-        const fixture = TestBed.createComponent(AppCurrenciesComponent);
         fixture.detectChanges();
         const template = fixture.debugElement.nativeElement;
         expect(template.querySelectorAll('ul li').length).toEqual(2);
