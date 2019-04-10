@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ZipCodeComponent } from './app.zipcode.component';
+import { ZipCodesComponent } from './app.zipcodes.component';
 
 
-const routes = [];
+const routes: Routes = [
+    { path: 'zipcodes', component: ZipCodesComponent, },
+    { path: 'zipcodes/:code', component: ZipCodeComponent }
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

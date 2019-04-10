@@ -1,12 +1,16 @@
 import { ZipCodeComponent } from './app.zipcode.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ZipCodeService } from './app.zipcode.service';
+import { of, throwError } from 'rxjs';
+import { startWith, catchError } from 'rxjs/operators';
 
-const serviceSub = { 'getZipcode': () => '94300' };
+// { 'getZipcode': () => '94300', 'getZipcode': () => zipcodeObserv }
+
 
 describe('ZipCodeComponent:', () => {
     let component: ZipCodeComponent;
     let fixture: ComponentFixture<ZipCodeComponent>;
+    const serviceSub = jasmine.createSpyObj('ZipCodeService', ['getZipcode', 'zipCodeObservable']);
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -32,9 +36,17 @@ describe('ZipCodeComponent:', () => {
     });
 
     it('should render zipcode', () => {
+        serviceSub.zipCodeObservable.and.returnValue(of('94300'));
         fixture.detectChanges();
         const html: HTMLElement = fixture.nativeElement;
         expect(html.innerHTML).toContain('94300');
+    });
+
+    it('should render placeholder instead of zipcode', () => {
+        serviceSub.zipCodeObservable.and.returnValue(throwError('zipcode not found'));
+        fixture.detectChanges();
+        const html: HTMLElement = fixture.nativeElement;
+        expect(html.innerHTML).toContain('...');
     });
 
 });

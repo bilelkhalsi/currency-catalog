@@ -1,6 +1,10 @@
 {
     "/c/api": {
       "target": "http://www.localeplanet.com",
-      "secure": true
+      "secure": false
+    },
+    "/zipcode/api": {
+      "target": "http://api.zippopotam.us/fr/",
+      "secure": false
     }
   }

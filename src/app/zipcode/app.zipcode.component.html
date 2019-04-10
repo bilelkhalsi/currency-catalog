@@ -1,1 +1,2 @@
-<h1>{{zipcode}}</h1>
+<p>{{zipcode | async | json}}</p>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
