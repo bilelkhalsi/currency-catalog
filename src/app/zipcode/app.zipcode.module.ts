@@ -6,9 +6,17 @@ import { ZipCodeRouter } from './app.zipcode.router';
 import { ZipCodeComponent } from './app.zipcode.component';
 import { ZipCodeService } from './app.zipcode.service';
 import { ZipCodesComponent } from './app.zipcodes.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromState from '../reducers';
 
 @NgModule({
-    imports: [CommonModule, HttpClientModule, MaterialModule, ZipCodeRouter],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        MaterialModule,
+        ZipCodeRouter,
+        StoreModule.forFeature('state', fromState.reducers, { metaReducers: fromState.metaReducers })
+    ],
     exports: [],
     declarations: [ZipCodeComponent, ZipCodesComponent],
     providers: [ZipCodeService],

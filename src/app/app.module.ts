@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 import { AppCurrenciesModule } from './currency/app.currency.module';
 import { AppRoutingModule } from './app.router';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ZipCodeModule } from './zipcode/app.zipcode.module';
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({}),
     AppCurrenciesModule,
     ZipCodeModule,
     AppRoutingModule

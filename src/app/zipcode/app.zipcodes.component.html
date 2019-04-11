@@ -3,11 +3,17 @@
         <form class="zipcode-form">
             <mat-label>Enter a zipcode:</mat-label>
             <mat-form-field floatLabel="never">
-                <input type="number" matInput placeholder="Zipcode">
+                <input type="number" matInput placeholder="Zipcode" #zipcode>
             </mat-form-field>
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-flat-button color="primary">Add location</button>
+        <button mat-flat-button (click)="addLocation(zipcode.value)" color="primary">Add location</button>
     </mat-card-actions>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card *ngFor="let zip of zipcodes | async" class="zipcode">
+    <mat-card-content>
+        {{zip}}
+    </mat-card-content>
 </mat-card>
