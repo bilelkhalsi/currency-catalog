@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
         <form class="zipcode-form">
-            <mat-label>Enter a zipcode:</mat-label>
+            <h3>Enter a zipcode:</h3>
             <mat-form-field floatLabel="never">
                 <input type="number" matInput placeholder="Zipcode" #zipcode>
             </mat-form-field>
@@ -16,4 +16,7 @@
     <mat-card-content>
         {{zip}}
     </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="removeLocation(zip)" color="primary">Remove</button>
+    </mat-card-actions>
 </mat-card>

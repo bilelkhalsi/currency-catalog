@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../reducers';
-import { AddZipcode } from '../actions/zipcode.actions';
+import { AddZipcode, RemoveZipcode } from '../actions/zipcode.actions';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -18,7 +18,7 @@ export class ZipCodesComponent implements OnInit {
     constructor(private store: Store<State>) { }
 
     ngOnInit() {
-        this.zipcodes = this.zipcodes = this.store.select('state').pipe(
+        this.zipcodes = this.zipcodes = this.store.select('zipcodeState').pipe(
             map(state => state.zipcodes),
             map(state => state.zipcodes)
         );
@@ -27,6 +27,11 @@ export class ZipCodesComponent implements OnInit {
     addLocation(zipcode: string) {
         console.log('add new  location : ', zipcode);
         this.store.dispatch(new AddZipcode(zipcode));
+    }
+
+    removeLocation(zipcode: string) {
+        console.log('remove location : ', zipcode);
+        this.store.dispatch(new RemoveZipcode(zipcode));
     }
 
 }

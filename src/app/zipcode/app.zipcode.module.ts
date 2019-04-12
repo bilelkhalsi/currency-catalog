@@ -15,7 +15,7 @@ import * as fromState from '../reducers';
         HttpClientModule,
         MaterialModule,
         ZipCodeRouter,
-        StoreModule.forFeature('state', fromState.reducers, { metaReducers: fromState.metaReducers })
+        StoreModule.forFeature('zipcodeState', fromState.reducers, { metaReducers: fromState.metaReducers })
     ],
     exports: [],
     declarations: [ZipCodeComponent, ZipCodesComponent],
