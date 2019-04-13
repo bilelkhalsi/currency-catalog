@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../app.material.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { ZipCodeRouter } from './app.zipcode.router';
 import { ZipCodeComponent } from './app.zipcode.component';
 import { ZipCodeService } from './app.zipcode.service';
 import { ZipCodesComponent } from './app.zipcodes.component';
-import { StoreModule } from '@ngrx/store';
+import { LoadLocationError } from './pipes/app.load-location-error.pipe';
 import * as fromState from '../reducers';
-import { EffectsModule } from '@ngrx/effects';
 import { LocationEffects } from '../effects/location.effects';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LocationEffects } from '../effects/location.effects';
     exports: [],
     declarations: [
         ZipCodeComponent,
-        ZipCodesComponent
+        ZipCodesComponent,
+        LoadLocationError
     ],
     providers: [ZipCodeService],
 })

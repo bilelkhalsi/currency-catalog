@@ -26,18 +26,18 @@
         <h3>{{zip.id}}</h3>
         <ng-template [ngIf]="zip.hasDetails" [ngIfElse]="loading">
             <div *ngIf="!zip.errorMessage else error">
-                <h4>{{zip.countryAbbrv}}</h4>
+                <h4>{{zip.country}}({{zip.countryAbbrv}})</h4>
                 <p>{{zip.places | json}}</p>
             </div>
         </ng-template>
         <ng-template #error>
-            <p class="error">{{zip.errorMessage | json}}</p>
+            <p class="error">{{zip.errorMessage | loadLocationError}}</p>
         </ng-template>
         <ng-template #loading>
             <div>Loading...</div>
         </ng-template>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="removeLocation(zip)" color="primary">Remove</button>
+        <button mat-button (click)="removeLocation(zip)" color="accent">Remove</button>
     </mat-card-actions>
 </mat-card>
