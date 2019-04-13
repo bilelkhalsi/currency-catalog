@@ -1,5 +1,5 @@
 
-class Place {
+export class Location {
     placeName: string;
     longitude: string;
     latitude: string;
@@ -23,7 +23,7 @@ export class Zipcode {
     country: string;
     countryAbbrv: string;
     errorMessage: any;
-    places: Place[] = [];
+    locations: Location[] = [];
 
     constructor(id: string, raw: any) {
         this.id = id;
@@ -34,7 +34,7 @@ export class Zipcode {
             this.country = raw['country'];
             this.countryAbbrv = raw['country abbreviation'];
             if (raw.places) {
-                this.places = raw.places.map(p => new Place(p));
+                this.locations = raw.places.map(p => new Location(p));
             }
         }
     }

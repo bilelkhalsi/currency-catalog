@@ -8,7 +8,7 @@ import { ZipCodeRouter } from './app.zipcode.router';
 import { ZipCodeComponent } from './app.zipcode.component';
 import { ZipCodeService } from './app.zipcode.service';
 import { ZipCodesComponent } from './app.zipcodes.component';
-import { LoadLocationError } from './pipes/app.load-location-error.pipe';
+import { LoadLocationErrorPipe, LocationPipe } from './pipes';
 import * as fromState from '../reducers';
 import { LocationEffects } from '../effects/location.effects';
 
@@ -25,7 +25,8 @@ import { LocationEffects } from '../effects/location.effects';
     declarations: [
         ZipCodeComponent,
         ZipCodesComponent,
-        LoadLocationError
+        LoadLocationErrorPipe,
+        LocationPipe
     ],
     providers: [ZipCodeService],
 })

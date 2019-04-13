@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * transform http error to human language message.
  */
 @Pipe({name: 'loadLocationError'})
-export class LoadLocationError implements PipeTransform {
+export class LoadLocationErrorPipe implements PipeTransform {
   transform(error: any): string {
     console.log(error);
     if ( ! error) {

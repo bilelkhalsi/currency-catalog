@@ -27,7 +27,13 @@
         <ng-template [ngIf]="zip.hasDetails" [ngIfElse]="loading">
             <div *ngIf="!zip.errorMessage else error">
                 <h4>{{zip.country}}({{zip.countryAbbrv}})</h4>
-                <p>{{zip.places | json}}</p>
+                <p>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let location of zip.locations">
+                            {{location | location}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </p>
             </div>
         </ng-template>
         <ng-template #error>
