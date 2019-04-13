@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ZipCodeService } from './app.zipcode.service';
 import { Observable, of } from 'rxjs';
 import { startWith, catchError } from 'rxjs/operators';
-import { ZipCode } from './api';
+import { Zipcode } from './api';
 
 @Component({
     selector: 'app-zipcode',
@@ -12,17 +12,10 @@ import { ZipCode } from './api';
 
 export class ZipCodeComponent implements OnInit {
 
-    zipcode: Observable<ZipCode>;
+    zipcode: Observable<Zipcode>;
     errorMessage = '';
 
     constructor(private service: ZipCodeService) { }
 
-    ngOnInit() {
-        this.zipcode = this.service.zipCodeObservable('94300').pipe(
-            catchError(err => {
-                setTimeout( () => this.errorMessage = err.message || err.toString());
-                return of(undefined);
-            })
-        );
-    }
+    ngOnInit() {}
 }

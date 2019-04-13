@@ -4,6 +4,7 @@ import { State } from '../reducers';
 import { AddZipcode, RemoveZipcode } from '../actions/zipcode.actions';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { Zipcode } from './api';
 
 @Component({
     selector: 'app-zipcodes',
@@ -13,7 +14,7 @@ import { map, tap } from 'rxjs/operators';
 
 export class ZipCodesComponent implements OnInit {
 
-    zipcodes: Observable<Array<string>>;
+    zipcodes: Observable<Array<Zipcode>>;
 
     constructor(private store: Store<State>) { }
 
@@ -26,7 +27,7 @@ export class ZipCodesComponent implements OnInit {
 
     addLocation(zipcode: string) {
         console.log('add new  location : ', zipcode);
-        this.store.dispatch(new AddZipcode(zipcode));
+        this.store.dispatch(new AddZipcode(new Zipcode(zipcode, null)));
     }
 
     removeLocation(zipcode: string) {

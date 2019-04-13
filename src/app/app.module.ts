@@ -5,6 +5,7 @@ import { AppCurrenciesModule } from './currency/app.currency.module';
 import { AppRoutingModule } from './app.router';
 import { AppComponent } from './app.component';
 import { ZipCodeModule } from './zipcode/app.zipcode.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ZipCodeModule } from './zipcode/app.zipcode.module';
   imports: [
     BrowserModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     AppCurrenciesModule,
     ZipCodeModule,
     AppRoutingModule

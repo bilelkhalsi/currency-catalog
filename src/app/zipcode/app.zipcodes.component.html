@@ -14,7 +14,28 @@
 <mat-divider></mat-divider>
 <mat-card *ngFor="let zip of zipcodes | async" class="zipcode">
     <mat-card-content>
-        {{zip}}
+        <!--
+                id: string;
+                zipCode: string;
+                hasDetails = false;
+                country: string;
+                countryAbbrv: string;
+                errorMessage: string;
+                places: Place[] = [];
+        -->
+        <h3>{{zip.id}}</h3>
+        <ng-template [ngIf]="zip.hasDetails" [ngIfElse]="loading">
+            <div *ngIf="!zip.errorMessage else error">
+                <h4>{{zip.countryAbbrv}}</h4>
+                <p>{{zip.places | json}}</p>
+            </div>
+        </ng-template>
+        <ng-template #error>
+            <p class="error">{{zip.errorMessage | json}}</p>
+        </ng-template>
+        <ng-template #loading>
+            <div>Loading...</div>
+        </ng-template>
     </mat-card-content>
     <mat-card-actions>
         <button mat-button (click)="removeLocation(zip)" color="primary">Remove</button>

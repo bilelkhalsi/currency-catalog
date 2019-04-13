@@ -16,14 +16,20 @@ class Place {
     }
 }
 
-export class ZipCode {
+export class Zipcode {
+    id: string;
     zipCode: string;
+    hasDetails = false;
     country: string;
     countryAbbrv: string;
+    errorMessage: any;
     places: Place[] = [];
 
-    constructor(raw: any) {
+    constructor(id: string, raw: any) {
+        this.id = id;
         if (raw) {
+            this.hasDetails = true;
+            this.errorMessage = raw['errorMessage'];
             this.zipCode = raw['post code'];
             this.country = raw['country'];
             this.countryAbbrv = raw['country abbreviation'];
@@ -32,5 +38,6 @@ export class ZipCode {
             }
         }
     }
+
 }
 

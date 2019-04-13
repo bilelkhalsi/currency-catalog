@@ -8,6 +8,8 @@ import { ZipCodeService } from './app.zipcode.service';
 import { ZipCodesComponent } from './app.zipcodes.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromState from '../reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { LocationEffects } from '../effects/location.effects';
 
 @NgModule({
     imports: [
@@ -15,10 +17,14 @@ import * as fromState from '../reducers';
         HttpClientModule,
         MaterialModule,
         ZipCodeRouter,
-        StoreModule.forFeature('zipcodeState', fromState.reducers, { metaReducers: fromState.metaReducers })
+        StoreModule.forFeature('zipcodeState', fromState.reducers, { metaReducers: fromState.metaReducers }),
+        EffectsModule.forFeature([LocationEffects])
     ],
     exports: [],
-    declarations: [ZipCodeComponent, ZipCodesComponent],
+    declarations: [
+        ZipCodeComponent,
+        ZipCodesComponent
+    ],
     providers: [ZipCodeService],
 })
 export class ZipCodeModule { }
