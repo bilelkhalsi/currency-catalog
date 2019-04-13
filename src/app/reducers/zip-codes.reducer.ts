@@ -12,12 +12,12 @@ export const initialState: ZipcodeState = {
   zipcodes: []
 };
 
-const removeZipcodeBiFn = (state: ZipcodeState, id: string) => {
-  return { ...state, zipcodes: state.zipcodes.filter(z1 => id === z1.id) };
+const removeZipcodeBiFn = (state: ZipcodeState, id: number) => {
+  return { ...state, zipcodes: state.zipcodes.filter(z1 => id !== z1.id)};
 };
 
 
-const updateErrorMsg = (state: ZipcodeState, id: string, error: any) => {
+const updateErrorMsg = (state: ZipcodeState, id: number, error: any) => {
   return { ...state, zipcodes: state.zipcodes.map(z1 => (id === z1.id) ? new Zipcode(id, {errorMessage: error})  : z1)};
 };
 

@@ -17,7 +17,7 @@ export class Location {
 }
 
 export class Zipcode {
-    id: string;
+    id: number;
     zipCode: string;
     hasDetails = false;
     country: string;
@@ -25,7 +25,7 @@ export class Zipcode {
     errorMessage: any;
     locations: Location[] = [];
 
-    constructor(id: string, raw: any) {
+    constructor(id: number, raw: any) {
         this.id = id;
         if (raw) {
             this.hasDetails = true;

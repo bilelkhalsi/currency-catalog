@@ -15,15 +15,15 @@ export class AddZipcode implements Action {
 
 export class RemoveZipcode implements Action {
   readonly type = ZipcodeActionTypes.RemoveZipcode;
-  constructor(public zipcode: string) {}
+  constructor(public zipcode: number) {}
 }
 
 export class LocationLoaded implements Action {
   readonly type = ZipcodeActionTypes.LocationLoaded;
-  constructor(public zipcode: string, public loaction: Zipcode) {}
+  constructor(public zipcode: number, public loaction: Zipcode) {}
 }
 
 export class LocationLoadFialed implements Action {
   readonly type = ZipcodeActionTypes.LocationLoadFailed;
-  constructor(public zipcode: string, public error: any) {}
+  constructor(public zipcode: number, public error: any) {}
 }

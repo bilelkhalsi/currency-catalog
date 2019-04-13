@@ -10,11 +10,7 @@ export class ZipCodeService {
 
     constructor(private http: HttpClient) { }
 
-    getZipcode(): string {
-        return '94300';
-    }
-
-    loadZipcodeLoctation(zip: string): Observable<Zipcode> {
+    loadZipcodeLoctation(zip: number): Observable<Zipcode> {
         return this.http.get<Zipcode>(`http://api.zippopotam.us/fr/${zip}`).pipe(
             map(raw => new Zipcode(zip, raw))
         );

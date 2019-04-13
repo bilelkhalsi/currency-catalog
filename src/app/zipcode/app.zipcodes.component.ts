@@ -25,12 +25,12 @@ export class ZipCodesComponent implements OnInit {
         );
     }
 
-    addLocation(zipcode: string) {
+    addLocation(zipcode: number) {
         console.log('add new  location : ', zipcode);
         this.store.dispatch(new AddZipcode(new Zipcode(zipcode, null)));
     }
 
-    removeLocation(zipcode: string) {
+    removeLocation(zipcode: number) {
         console.log('remove location : ', zipcode);
         this.store.dispatch(new RemoveZipcode(zipcode));
     }
